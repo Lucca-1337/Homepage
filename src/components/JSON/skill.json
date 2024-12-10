@@ -3,12 +3,35 @@
         "id": 1,
         "skillName": "HTML",
         "description": "This is a brief description for item 1.",
-        "icon": "html"
+        "icon": "html",
+        "color": "#E44D26"
     },
     {
         "id": 2,
         "skillName": "CSS",
         "description": "This is a brief description for item 2.",
-        "icon": "css"
+        "icon": "css",
+        "color": "#1572B6"
+    },
+    {
+        "id": 3,
+        "skillName": "Javascript",
+        "description": "This is a brief description for item 2.",
+        "icon": "js",
+        "color": "#F7DF1E"
+    },
+    {
+        "id": 3,
+        "skillName": "Vue",
+        "description": "This is a brief description for item 2.",
+        "icon": "vue",
+        "color": "#42B883"
+    },
+    {
+        "id": 3,
+        "skillName": "php",
+        "description": "This is a brief description for item 2.",
+        "icon": "php",
+        "color": "#474A8A"
     }
 ]

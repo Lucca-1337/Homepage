@@ -1,9 +1,9 @@
 <template>
     <header>
         <div class="container d-flex justify-content-between">
-            <a href="/">
-                <h1>Gian-Lucca Kaworsky</h1>
-            </a>
+            <RouterLink to="/">
+                <h1 class="header-title">Gian-Lucca Kaworsky</h1>
+            </RouterLink>
             <nav>
                 <RouterLink id="homelink" to="/">Home</RouterLink>
                 <RouterLink id="projectslink" to="/myprojects">MyProjects</RouterLink>
@@ -15,6 +15,8 @@
 </template>
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+
+
 </script>
 
 <style scoped lang="scss">
@@ -23,20 +25,55 @@ header {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.header-title {
+    color: var(--color-primary);
+}
+
+a {
+    text-decoration: none;
+}
+
 nav {
     width: 40%;
     display: flex;
     justify-content: flex-end;
-}
 
-a {
-    color: var(--color-primary);
-    font-size: 1.4rem;
-    text-decoration: none;
-    padding: 6px;
+    a {
+        color: rgb(255, 255, 255);
+        font-size: 1.4rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+        position: relative;
+        transition: color .3s ease-in-out;
 
-    &:hover {
-        text-decoration: underline;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 80%;
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-primary);
+            transform: scaleX(0);
+            transition: transform .3s ease-in-out;
+        }
+
+        &:hover {
+            color: var(--color-primary);
+        }
+
+        &:hover::before {
+            transform: scaleX(1);
+        }
+    }
+
+    a.router-link-active {
+        color: var(--color-primary);
+    }
+
+    a.router-link-active::before {
+        transform: scaleX(1);
     }
 }
 </style>

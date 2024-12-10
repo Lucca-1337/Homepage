@@ -1,12 +1,13 @@
-<script setup>
-
-</script>
-
 <template>
-  <div class="about">
-    <h1>Meine Projekte</h1>
-
-  </div>
+  <section class="container projects">
+    <h1>My Projects</h1>
+    <Projects />
+  </section>
 </template>
 
-<style></style>
+<script setup>
+import Projects from '@/components/Projects.vue';
+</script>
+
+
+<style lang="scss"></style>
