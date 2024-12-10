@@ -1,11 +1,11 @@
 <script setup>
 import MainHeader from '@/components/MainHeader.vue'
+import MainFooter from '@/components/MainFooter.vue'
 </script>
 
 <template>
-  <header class="container">
-    <MainHeader />
-  </header>
+  <MainHeader />
+  <MainFooter />
 </template>
 
 <style scoped></style>
