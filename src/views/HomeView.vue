@@ -1,7 +1,7 @@
 <script setup>
 import Skills from '../components/Skills.vue'
 
-const typed = ['Hi, I am a trainee as an IT specialist for application development, and this is my personal portfolio website.']
+const typed = ['Hi, I am a trainee as an IT specialist for application development.']
 </script>
 
 <template>

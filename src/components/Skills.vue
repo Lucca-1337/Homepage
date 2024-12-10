@@ -1,10 +1,15 @@
 <template>
     <section>
         <h2>My Skills</h2>
-        <OneSkill />
+        <div class="skills-container d-flex">
+            <div v-for=" skill in Skills">
+                <OneSkill :skillName="skill.skillName" :icon="skill.icon" />
+            </div>
+        </div>
     </section>
 </template>
 <script setup>
 import OneSkill from './OneSkill.vue'
+import Skills from '@/components/JSON/skill.json'
 </script>
 <style lang="scss"></style>

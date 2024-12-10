@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "skillName": "HTML",
+        "description": "This is a brief description for item 1.",
+        "icon": "html"
+    },
+    {
+        "id": 2,
+        "skillName": "CSS",
+        "description": "This is a brief description for item 2.",
+        "icon": "css"
+    }
+]
