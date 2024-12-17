@@ -27,6 +27,7 @@ header {
 
 .header-title {
     color: var(--color-primary);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 a {

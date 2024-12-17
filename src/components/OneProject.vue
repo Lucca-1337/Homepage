@@ -2,7 +2,8 @@
     <div @click="pathToToDo()" class="project-container">
         <h1>{{ props.projectName }}</h1>
         <div class="used-skills">
-            {{ props.usedSkills }}
+            Used Skills:
+            {{ props.usedSkills.join(', ') }}
         </div>
         <div class="project-description">
             {{ props.description }}
@@ -15,13 +16,14 @@ import { useRouter } from 'vue-router';
 const props = defineProps({
     projectName: String,
     usedSkills: Array,
-    description: String
+    description: String,
+    projectPath: String
 })
 
 const router = useRouter();
 
 function pathToToDo() {
-    window.location.href = '/to-do-app'
+    window.location.href = '/' + props.projectPath
 }
 </script>
 <style lang="scss">
@@ -30,6 +32,14 @@ function pathToToDo() {
     border: 2px solid var(--color-background);
     border-radius: 10px;
     padding: 1rem;
+    min-width: 800px;
+    cursor: pointer;
+
+    @media (max-width: 800px) {
+        min-width: 100%;
+
+    }
+
 
     &::after {
         content: '';

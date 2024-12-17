@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "projectName": "ToDoList App",
+        "projectDescription": "This is a simple ToDoList App. This is my first bigger project.",
+        "usedSkills": [
+            "HTML",
+            "CSS",
+            "JS",
+            "Vue"
+        ],
+        "projectPath": "to-do-app"
+    },
+    {
+        "id": 1,
+        "projectName": "Demoshop",
+        "projectDescription": "This shop was created for a course at the University of Applied Sciences Berlin.",
+        "usedSkills": [
+            "HTML",
+            "CSS",
+            "JS",
+            "PHP"
+        ],
+        "projectPath": "demoshop"
+    }
+]

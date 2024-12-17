@@ -10,4 +10,12 @@ import Projects from '@/components/Projects.vue';
 </script>
 
 
-<style lang="scss"></style>
+<style scoped lang="scss">
+.projects {
+  h1 {
+    text-align: center;
+  }
+
+
+}
+</style>
