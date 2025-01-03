@@ -2,8 +2,10 @@
     <div @click="pathToToDo()" class="project-container">
         <h1>{{ props.projectName }}</h1>
         <div class="used-skills">
-            Used Skills:
-            {{ props.usedSkills.join(', ') }}
+            <div v-for="skill in filteredSkills">
+                <OneSkill :skillName="skill.skillName" :icon="skill.icon" :description="skill.description"
+                    :color="skill.color" :size="0.4" :can_open="false" />
+            </div>
         </div>
         <div class="project-description">
             {{ props.description }}
@@ -11,7 +13,8 @@
     </div>
 </template>
 <script setup>
-import { useRouter } from 'vue-router';
+import OneSkill from './OneSkill.vue'
+import Skills from '@/components/JSON/skill.json'
 
 const props = defineProps({
     projectName: String,
@@ -20,7 +23,8 @@ const props = defineProps({
     projectPath: String
 })
 
-const router = useRouter();
+const filteredSkills = Skills.filter(skill => props.usedSkills.some(usedSkill => usedSkill.toLowerCase() === skill.skillName.toLowerCase()))
+
 
 function pathToToDo() {
     window.location.href = '/' + props.projectPath
@@ -36,7 +40,8 @@ function pathToToDo() {
     cursor: pointer;
 
     @media (max-width: 800px) {
-        min-width: 100%;
+        min-width: 0;
+        width: 100vw;
 
     }
 
@@ -53,5 +58,11 @@ function pathToToDo() {
         opacity: 0.5;
         background-color: var(--color-background);
     }
+}
+
+.used-skills {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
 }
 </style>

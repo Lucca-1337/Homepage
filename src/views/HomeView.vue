@@ -1,15 +1,17 @@
 <script setup>
 import Skills from '../components/Skills.vue'
 
-const typed = ['Hi, I am a trainee specializing in application developement.']
+const typed = ['Hello, Iam Gian-Lucca Kaworsky', 'On this Website you will find all my projects and some information about me'];
 </script>
 
 <template>
   <div class="home">
     <div class="heading_div">
-      <h1>
-        <VueTyped class="heading container" :strings="typed" :typeSpeed="30"></VueTyped>
-      </h1>
+      <div class="container">
+        <h1>
+          <VueTyped class="heading" :strings="typed" :typeSpeed="30"></VueTyped>
+        </h1>
+      </div>
     </div>
     <main class="container">
       <Skills />
@@ -20,10 +22,14 @@ const typed = ['Hi, I am a trainee specializing in application developement.']
 <style scoped lang="scss">
 .heading_div {
   width: 100%;
+  height: 30rem;
   background-image: url('../components/icons/code.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .heading {
