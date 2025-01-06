@@ -5,7 +5,15 @@
             <h3>{{ props.skillName }}</h3>
         </div>
         <Transition>
-            <VueTyped class="description" v-if="show" :strings="typed" :typeSpeed="10"></VueTyped>
+            <div v-if="show">
+                Skill Level:
+                <div class="skill_level">
+                    <div class="skill_bar" :style="{ width: props.skill_level + '%' }">
+                        {{ props.skill_level }}%
+                    </div>
+                </div>
+                <VueTyped class="description" :strings="typed" :typeSpeed="10"></VueTyped>
+            </div>
         </Transition>
     </div>
 </template>
@@ -16,6 +24,7 @@ import CSSIcon from '@/components/icons/CSS.vue'
 import JSIcon from '@/components/icons/JS.vue'
 import VUEIcon from '@/components/icons/VUE.vue'
 import PHPIcon from '@/components/icons/PHP.vue'
+import JavaIcon from '@/components/icons/Java.vue'
 
 const props = defineProps({
     skillName: String,
@@ -23,6 +32,7 @@ const props = defineProps({
     description: String,
     color: String,
     size: Number,
+    skill_level: Number,
     can_open: Boolean,
 })
 
@@ -33,7 +43,8 @@ const iconMapping = {
     css: CSSIcon,
     js: JSIcon,
     vue: VUEIcon,
-    php: PHPIcon
+    php: PHPIcon,
+    java: JavaIcon,
 };
 
 // Dynamische Komponente basierend auf der Prop
@@ -123,6 +134,20 @@ h3 {
     color: white;
     padding: calc(1rem * v-bind(size));
     width: calc(300px * v-bind(size));
+}
+
+.skill_level {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.skill_bar {
+    text-align: right;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 4px;
+    color: white;
+    background-color: v-bind(color);
 }
 
 .v-enter-active {

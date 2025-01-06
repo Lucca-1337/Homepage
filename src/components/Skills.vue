@@ -4,7 +4,7 @@
         <div class="skills-container">
             <div v-for="skill in Skills" class="skill">
                 <OneSkill :skillName="skill.skillName" :icon="skill.icon" :description="skill.description"
-                    :color="skill.color" :size="1" :can_open="true" />
+                    :color="skill.color" :size="1" :skill_level="skill.skill_level" :can_open="true" />
             </div>
         </div>
     </section>

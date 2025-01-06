@@ -2,36 +2,49 @@
     {
         "id": 1,
         "skillName": "HTML",
-        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        "description": "I have an average proficiency in HTML. I am familiar with the standard HTML functions and can use it at a relatively basic level",
         "icon": "html",
-        "color": "#E44D26"
+        "color": "#E44D26",
+        "skill_level": 50
     },
     {
         "id": 2,
         "skillName": "CSS",
         "description": "This is a brief description for item 2.",
         "icon": "css",
-        "color": "#1572B6"
+        "color": "#1572B6",
+        "skill_level": 50
     },
     {
         "id": 3,
         "skillName": "Javascript",
         "description": "This is a brief description for item 2.",
         "icon": "js",
-        "color": "#F7DF1E"
+        "color": "#F7DF1E",
+        "skill_level": 30
     },
     {
         "id": 4,
         "skillName": "Vue",
         "description": "This is a brief description for item 2.",
         "icon": "vue",
-        "color": "#42B883"
+        "color": "#42B883",
+        "skill_level": 30
     },
     {
         "id": 5,
         "skillName": "php",
         "description": "This is a brief description for item 2.",
         "icon": "php",
-        "color": "#474A8A"
+        "color": "#474A8A",
+        "skill_level": 20
+    },
+    {
+        "id": 6,
+        "skillName": "Java",
+        "description": "This is a brief description for item 2.",
+        "icon": "java",
+        "color": "#6E0101",
+        "skill_level": 10
     }
 ]
