@@ -9,7 +9,7 @@ const typed = ['Hello, Iam Gian-Lucca Kaworsky', 'On this Website you will find 
     <div class="heading_div">
       <div class="container">
         <h1>
-          <VueTyped class="heading" :strings="typed" :typeSpeed="30"></VueTyped>
+          <VueTyped class="heading" :strings="typed" :typeSpeed="30" :backDelay="1500" :backSpeed="25"></VueTyped>
         </h1>
       </div>
     </div>
