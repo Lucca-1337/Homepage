@@ -17,6 +17,9 @@ import Skills from '@/components/JSON/skill.json'
 .skills-container {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: space-around;
 }
 
 .skill {

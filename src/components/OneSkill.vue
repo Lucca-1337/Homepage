@@ -5,20 +5,22 @@
             <h3>{{ props.skillName }}</h3>
         </div>
         <Transition>
-            <div v-if="show">
-                Skill Level:
-                <div class="skill_level">
-                    <div class="skill_bar" :style="{ width: props.skill_level + '%' }">
-                        {{ props.skill_level }}%
+            <div ref="description" class="description" v-show="show">
+                <div>
+                    Skill Level:
+                    <div class="skill_level">
+                        <div class="skill_bar" :style="{ width: props.skill_level + '%' }">
+                            {{ props.skill_level }}%
+                        </div>
                     </div>
                 </div>
-                <VueTyped class="description" :strings="typed" :typeSpeed="10"></VueTyped>
+                <VueTyped v-if="show" :strings="typed" :typeSpeed="10"></VueTyped>
             </div>
         </Transition>
     </div>
 </template>
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted, useTemplateRef } from 'vue';
 import HTMLIcon from '@/components/icons/HTML.vue'
 import CSSIcon from '@/components/icons/CSS.vue'
 import JSIcon from '@/components/icons/JS.vue'
@@ -48,7 +50,9 @@ const iconMapping = {
 };
 
 // Dynamische Komponente basierend auf der Prop
-const iconComponent = computed(() => iconMapping[props.icon.toLowerCase()] || null);
+const iconComponent = computed(() => iconMapping[props.icon.toLowerCase()] || null)
+
+const description = useTemplateRef('description')
 
 onMounted(() => {
     document.addEventListener("click", closeDescription);
@@ -81,13 +85,11 @@ onUnmounted(() => {
 .skill-container {
     position: relative;
     display: block;
-    width: fit-content;
     font-size: calc(1rem * v-bind(size));
     padding: calc(1rem * v-bind(size));
     margin: calc(1rem * v-bind(size));
     border: 2px solid v-bind(color);
     border-radius: calc(16px * v-bind(size));
-    overflow-x: scroll;
     overflow: hidden;
     cursor: pointer;
 
@@ -133,7 +135,8 @@ h3 {
 .description {
     color: white;
     padding: calc(1rem * v-bind(size));
-    width: calc(300px * v-bind(size));
+    width: calc(400px * v-bind(size));
+    overflow: hidden;
 }
 
 .skill_level {
@@ -151,19 +154,20 @@ h3 {
 }
 
 .v-enter-active {
-    transition: opacity 0.2s ease-in, transform 0.2s ease-in, width 0.2s ease, height 0.2s ease;
+    transition: padding 0.5s ease, margin 0.5s ease, opacity 0.2s ease, transform 0.2s ease-in-out, width 0.4s ease, height 0.3s ease;
 }
 
 .v-leave-active {
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out, width 0.2s ease;
+    transition: padding 0.5s ease, margin 0.5s ease, opacity 0.2s ease, transform 0.2s ease-in-out, width 0.4s ease, height 0.3s ease-in;
 }
-
 
 .v-enter-from,
 .v-leave-to {
     opacity: 0;
     transform: translateY(-10px);
-    width: 0;
-    height: 0;
+    width: 100px;
+    height: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 </style>

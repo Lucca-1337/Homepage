@@ -1,7 +1,7 @@
 <script setup>
 import Skills from '../components/Skills.vue'
 
-const typed = ['Hello, Iam Gian-Lucca Kaworsky', 'On this Website you will find all my projects and some information about me'];
+const typed = ['Hello, I am Gian-Lucca Kaworsky', 'On this Website you will find all my projects and some information about me'];
 </script>
 
 <template>
