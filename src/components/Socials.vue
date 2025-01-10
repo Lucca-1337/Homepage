@@ -1,12 +1,8 @@
 <template>
     <div class="socialIconsContainer">
         <div class="gitHubLink">
-            <a href="https://github.com/Lucca-1337"><font-awesome-icon class="socialIcons"
+            <a href="https://github.com/Lucca-1337" target="_blank"><font-awesome-icon class="socialIcons"
                     :icon="['fab', 'github']" /></a>
-        </div>
-        <div class="instagramLink">
-            <a href="https://www.instagram.com/lucca.1337"><font-awesome-icon class="socialIcons"
-                    :icon="['fab', 'instagram']" /></a>
         </div>
     </div>
 </template>

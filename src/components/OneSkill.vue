@@ -158,7 +158,7 @@ h3 {
 }
 
 .v-leave-active {
-    transition: padding 0.5s ease, margin 0.5s ease, opacity 0.2s ease, transform 0.2s ease-in-out, width 0.4s ease, height 0.3s ease-in;
+    transition: padding 0.5s ease, margin 0.5s ease, opacity 0.2s ease, transform 0.2s ease-in-out, width 0.4s ease-out, height 0.3s ease-out;
 }
 
 .v-enter-from,
