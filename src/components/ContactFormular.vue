@@ -1,29 +1,51 @@
 <template>
     <div class="contact_formular">
         <div class="contact_container">
-            <div class="input_container">
-                Name:
-                <input type="text" name="name" class="input_formular" id="name">
-            </div>
-            <div class="input_container">
-                E-Mail:
-                <input type="text" name="email" class="input_formular" id="email">
-            </div>
-            <div class="input_container">
-                Subject:
-                <input type="text" name="subject" class="input_formular" id="subject" autocomplete="none">
-            </div>
-            <div class="input_container">
-                Message:
-                <textarea name="message" class="input_formular" id="message"></textarea>
-            </div>
-            <div class="send_button_container">
-                <button type="submit" class="send_button">Send</button>
-            </div>
+            <form @submit="send_message">
+                <div class="input_container">
+                    Name:
+                    <input type="text" name="name" class="input_formular" id="name">
+                </div>
+                <div class="input_container">
+                    E-Mail:
+                    <input type="text" name="email" class="input_formular" id="email">
+                </div>
+                <div class="input_container">
+                    Subject:
+                    <input type="text" name="subject" class="input_formular" id="subject" autocomplete="none">
+                </div>
+                <div class="input_container">
+                    Message:
+                    <textarea name="message" class="input_formular" id="message"></textarea>
+                </div>
+                <div class="send_button_container">
+                    <button type="submit" class="send_button">Send</button>
+                </div>
+            </form>
         </div>
     </div>
 </template>
 <script setup>
+import axios from 'axios';
+
+var name = '';
+var email = '';
+var subject = '';
+var message = '';
+
+async function send_message() {
+    try {
+        const response = await axios.post('http://localhost:3001/send_message', {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        });
+        console.log(response.data);
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 </script>
 <style scoped lang="scss">

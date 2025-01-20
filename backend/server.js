@@ -35,9 +35,15 @@ app.get('/api/message', (req, res) => {
     });
 });
 
-app.get('/api/send_message', (req, res) => {
-    res.json([{ name: 'Max', email: 'max@example.com' }, { name: 'John', email: 'john@example.com' }]);
-})
+app.post('/api/send_message', (req, res) => {
+    const { name, email, message } = req.body;
+
+    // Hier würdest du normalerweise die Daten in einer Datenbank speichern
+    console.log(`Kontakt erhalten: ${name}, ${email}, ${message}`);
+
+    // Antwort an den Client zurücksenden
+    res.status(201).json({ message: 'Kontakt erfolgreich hinzugefügt!' });
+});
 
 
 
