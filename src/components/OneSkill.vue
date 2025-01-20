@@ -121,8 +121,10 @@ onUnmounted(() => {
 }
 
 h3 {
+    line-height: 1;
     font-size: calc(2rem * v-bind(size)) !important;
     margin-bottom: 0 !important;
+    padding-right: 6px;
 }
 
 .skill-name {
