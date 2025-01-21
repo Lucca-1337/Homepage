@@ -36,13 +36,18 @@ app.get('/api/message', (req, res) => {
 });
 
 app.post('/api/send_message', (req, res) => {
-    const { name, email, message } = req.body;
+    const { name, email, subject, message } = req.body;
 
     // Hier würdest du normalerweise die Daten in einer Datenbank speichern
-    console.log(`Kontakt erhalten: ${name}, ${email}, ${message}`);
+    console.log(`Kontakt erhalten: ${name}, ${email}, ${subject}, ${message}`);
+    connection.query('INSERT INTO message (name, email, subject, message) VALUES (?, ?, ?, ?)', [name, email, subject, message], (err, results) => {
+        if (err) {
+            console.error('Fehler beim Speichern der Nachricht:', err);
+            return;
+        }
+        console.log('Nachricht erfolgreich gespeichert');
+    });
 
-    // Antwort an den Client zurücksenden
-    res.status(201).json({ message: 'Kontakt erfolgreich hinzugefügt!' });
 });
 
 

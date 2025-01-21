@@ -3,20 +3,21 @@
         <div class="contact_container">
             <form @submit="send_message">
                 <div class="input_container">
-                    Name:
-                    <input type="text" name="name" class="input_formular" id="name">
+                    *Name:
+                    <input v-model="name" type="text" name="name" class="input_formular" id="name" required>
                 </div>
                 <div class="input_container">
-                    E-Mail:
-                    <input type="text" name="email" class="input_formular" id="email">
+                    *E-Mail:
+                    <input v-model="email" type="text" name="email" class="input_formular" id="email" required>
                 </div>
                 <div class="input_container">
-                    Subject:
-                    <input type="text" name="subject" class="input_formular" id="subject" autocomplete="none">
+                    *Subject:
+                    <input v-model="subject" type="text" name="subject" class="input_formular" id="subject"
+                        autocomplete="none" required>
                 </div>
                 <div class="input_container">
                     Message:
-                    <textarea name="message" class="input_formular" id="message"></textarea>
+                    <textarea v-model="message" name="message" class="input_formular" id="message"></textarea>
                 </div>
                 <div class="send_button_container">
                     <button type="submit" class="send_button">Send</button>
@@ -35,7 +36,7 @@ var message = '';
 
 async function send_message() {
     try {
-        const response = await axios.post('http://localhost:3001/send_message', {
+        const response = await axios.post('http://localhost:3001/api/send_message', {
             name: name,
             email: email,
             subject: subject,
