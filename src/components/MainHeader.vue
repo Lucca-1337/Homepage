@@ -146,8 +146,9 @@ nav {
 }
 
 .closeNavbar {
-    align-self: flex-start;
+    align-self: flex-end;
     font-size: 1.5rem;
+    margin: 5px 0px;
 }
 
 .dark {
@@ -162,14 +163,14 @@ nav {
 
 .mobile-nav-links {
     position: absolute;
-    padding: 2rem;
+    padding: 1rem;
     height: 100vh;
     width: 200px;
     top: 0;
     right: 0;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: start;
     background-color: rgb(36, 36, 36);
     z-index: 9999999;
 }

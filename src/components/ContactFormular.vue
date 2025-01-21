@@ -1,7 +1,8 @@
 <template>
+
     <div class="contact_formular">
         <div class="contact_container">
-            <form @submit="send_message">
+            <form @submit.prevent="send_message">
                 <div class="input_container">
                     *Name:
                     <input v-model="name" type="text" name="name" class="input_formular" id="name" required>
@@ -20,32 +21,52 @@
                     <textarea v-model="message" name="message" class="input_formular" id="message"></textarea>
                 </div>
                 <div class="send_button_container">
+                    <div class="loader_container">
+                        <div class="loader" v-if="loading"></div>
+                    </div>
                     <button type="submit" class="send_button">Send</button>
                 </div>
             </form>
+            <transition>
+                <div class="confirmation_text" v-if="confirmation">{{ confirmation }}</div>
+            </transition>
         </div>
     </div>
 </template>
 <script setup>
 import axios from 'axios';
+import { ref } from 'vue';
 
+var confirmation = ref();
+var loading = ref(false);
 var name = '';
 var email = '';
 var subject = '';
 var message = '';
 
-async function send_message() {
+async function send_message(e) {
     try {
+        loading.value = true;
         const response = await axios.post('http://localhost:3001/api/send_message', {
             name: name,
             email: email,
             subject: subject,
             message: message
         });
-        console.log(response.data);
+        confirmation.value = response.data.message;
     } catch (error) {
         console.error(error);
+    } finally {
+        loading.value = false;
+        clearForm();
     }
+}
+
+function clearForm() {
+    name = '';
+    email = '';
+    subject = '';
+    message = '';
 }
 
 </script>
@@ -96,6 +117,53 @@ async function send_message() {
     }
 }
 
+.confirmation_text {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.v-enter-active {
+    transition: opacity 0.2s ease, transform 0.2s ease-in-out;
+}
+
+.v-leave-active {
+    transition: opacity 0.2s ease, transform 0.2s ease-in-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.loader_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.loader {
+    border: 6px solid #f3f3f3;
+    /* Light grey */
+    border-top: 6px solid var(--color-primary);
+    /* Blue */
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 @media (min-width: 992.98px) {
     .contact_container {

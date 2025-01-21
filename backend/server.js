@@ -39,17 +39,18 @@ app.post('/api/send_message', (req, res) => {
     const { name, email, subject, message } = req.body;
 
     // Hier würdest du normalerweise die Daten in einer Datenbank speichern
-    console.log(`Kontakt erhalten: ${name}, ${email}, ${subject}, ${message}`);
+    console.log(`Message Data: ${name}, ${email}, ${subject}, ${message}`);
     connection.query('INSERT INTO message (name, email, subject, message) VALUES (?, ?, ?, ?)', [name, email, subject, message], (err, results) => {
         if (err) {
-            console.error('Fehler beim Speichern der Nachricht:', err);
+            console.error('Error while sending message:', err);
+            res.status(500).json({ error: 'Error while sending message' });
             return;
         }
-        console.log('Nachricht erfolgreich gespeichert');
+        res.status(200).json({ message: 'Thank you for your message. I will answer you as soon as possible.' });
+        return;
     });
 
 });
-
 
 
 // Server starten
